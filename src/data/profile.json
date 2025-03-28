@@ -1,0 +1,25 @@
+[
+     {
+       "name": "John Doe",
+       "position": "Software Engineer",
+       "articles": 15,
+       "followers": 1200,
+       "rating": 4.8
+     },
+     {
+       "name": "Emma Watson",
+       "position": "Product Manager",
+       "articles": 20,
+       "followers": 2300,
+       "rating": 4.6
+     },
+     {
+       "name": "Michael Brown",
+       "position": "Data Scientist",
+       "articles": 12,
+       "followers": 1750,
+       "rating": 4.7
+     }
+   
+   ]
+   

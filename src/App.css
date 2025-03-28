@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+.navbar{
+     height: 80px;
+     width: 100%;
+     background-color: #1a202c;
+     color:white;
+}
