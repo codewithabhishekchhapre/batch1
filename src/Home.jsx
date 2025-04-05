@@ -1,26 +1,43 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import StoryCard from './components/StoryCard ';
+import Loader from './components/Loader';
 
 function Home() {
      const [count,setcount]=useState(0);
      const [increment,setincrement]=useState(0);
+     const [data,setdata]=useState([]);
+     const [loading,setloading]=useState(true);
 
-     useEffect(()=>{
-          console.log("hello")
-     },[increment])
+  useEffect(()=>{
+        axios.get("https://dummyjson.com/posts")
+        .then((res)=>{
 
+          console.log(res.data.posts)
+          setdata(res.data.posts)
+          setloading(false)
+        })
+  },[])
+  console.log(data)
      // console.log("outer function ")
+if(loading){
+  return <Loader/>
+}
 
   return (
-    <div className='h-screen w-full flex justify-center items-center'>
-     <h1>This is a home page {count}</h1>
+   <>
+
+   <div className='flex flex-wrap gap-4'>
 
 
-     <button onClick={()=>{setcount(count+1)}}>click me </button> 
-     <br />
-     <h1>increment {increment}</h1>
-
-     <button className='border-amber-500 bg-black text-white' onClick={()=>{setincrement(increment+1)}}>increment </button>
+    {data.map((singledata)=>{
+      return <StoryCard data={singledata}/>
+    }).slice(0,6)}
     </div>
+
+
+
+   </>
   )
 }
 
