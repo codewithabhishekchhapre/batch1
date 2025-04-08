@@ -12,7 +12,9 @@ function Navbar() {
         <div>
           <ul className='flex gap-3'>
             <li className='underline'>Home</li>
-            <li>About</li>
+            <Link to={"/user"}>
+            <li>user</li>
+            </Link>
             <li>Contact</li>
             <li>services</li>
             <li>Career</li>
