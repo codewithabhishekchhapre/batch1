@@ -6,6 +6,7 @@ import Home from './Home'
 import Contact from './evening/Contact'
 import UserList from './components/UserList '
 import Details from './components/Details'
+import Meprofile from './components/Meprofile'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path='/user' element={<UserList/>}/>
       <Route path='/user/:id' element={<Details/>}/>
       <Route path='/contact' element={<Contact/>}/>
+      <Route path='/profile' element={<Meprofile/>}/>
       <Route path='*' element={<Home/>}/>
     </Route>
    </Routes>

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import apiCaller from '../data/apiCaller';
 
 const Login = () => {
   
@@ -18,16 +19,29 @@ const Login = () => {
 
      function submit(e){
           e.preventDefault()
-          axios.post('https://dummyjson.com/user/login',formdata)
-          .then((res)=>{
-               console.log(res)
-               if(res.status==200){
-                    navigator("/user")
-               }
-          })
-          .catch((err)=>{
-               setresult(err.response.data.message)
-          })
+       apiCaller("post","user/login",formdata)
+       .then(res=>{
+        if(res.success==true){
+          localStorage.setItem("accessToken",res.data.accessToken)
+              navigator("/user")
+        }
+        else{
+          alert(res.error)
+        }
+       })
+
+        
+          // axios.post('https://dummyjson.com/user/login',formdata)
+          // .then((res)=>{
+          //      console.log(res)
+          //      if(res.status==200){
+          //           localStorage.setItem("accessToken",res.data.accessToken)
+          //           navigator("/user")
+          //      }
+          // })
+          // .catch((err)=>{
+          //      setresult(err.response.data.message)
+          // })
      }
 
 
