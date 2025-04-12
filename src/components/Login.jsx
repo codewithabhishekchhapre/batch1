@@ -18,8 +18,10 @@ const Login = () => {
      }
 
      function submit(e){
+      
           e.preventDefault()
-       apiCaller("post","user/login",formdata)
+          console.log(formdata)
+       apiCaller("post","user/login",false,formdata)
        .then(res=>{
         if(res.success==true){
           localStorage.setItem("accessToken",res.data.accessToken)
