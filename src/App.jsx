@@ -11,6 +11,8 @@ import UserList from './components/UserList '
 import Dashboard from './components/Dashboard'
 import ProfileCard from './components/ProfileCard'
 import EmployeeTable from './components/EmployeeTable'
+import Protected from './Protected'
+import Ref from './Ref'
 
 function App() {
   return (
@@ -18,16 +20,21 @@ function App() {
    <BrowserRouter>
    <Routes>
     <Route path="/" element={<Navbar/>}>
-      <Route index element={<Home/>}/>
+      <Route index element={<Ref/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/user' element={<Privateroute/>}/>
       <Route path='/user/:id' element={<Details/>}/>
       <Route path='/contact' element={<Contact/>}/>
       <Route path='/profile' element={<Meprofile/>}/>
-      <Route path="/dashboard" element={<Dashboard/>}>
-          <Route index element={<ProfileCard/>}/>
-          <Route path='employees' element={<EmployeeTable/>}/>
-      </Route>
+      <Route path="/dashboard"
+       element={<Protected>
+         <Dashboard/>
+        </Protected>
+        }
+       />
+          {/* <Route index element={<ProfileCard/>}/>
+          <Route path='employees' element={<EmployeeTable/>}/> */}
+      {/* </Route> */}
       <Route path='*' element={<Home/>}/>
     </Route>
    </Routes>

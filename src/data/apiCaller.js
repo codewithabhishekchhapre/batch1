@@ -13,6 +13,8 @@ const apiCaller = async (method, url,isToken ,data = null, params = null )  => {
       headers['Authorization'] = `Bearer ${token}`;
     }
     }
+
+
     const response = await axios({
       method,
       url: `https://dummyjson.com/${url}`, // base URL + endpoint
